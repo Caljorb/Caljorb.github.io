@@ -4,4 +4,25 @@ body {
     text-align: center;
     vertical-align: middle;
     font-family: "REM-Regular";
+    font-size: 25px;
+}
+
+.bunny {
+    color: lightgray;
+    text-align: left;
+    font-size: 25px;
+    margin-left: .5%;
+    margin-bottom: -2px;
+}
+
+.left-div {
+    border: 2px outset white;
+    border-style: solid;
+    background-color: rgb(100, 160, 102);
+    margin-left: .5%;
+    padding-left: 10px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 30%;
+    float: left;
 }
