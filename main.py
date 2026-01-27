@@ -3,7 +3,6 @@ import random as rand
 
 dark = True
 def menu():
-  # TODO: add favicon <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   ui.add_head_html('''
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,4 +128,4 @@ def first_post():
       ui.label('I\'m not entirely sure what I\'ll be using it for yet, but I plan on sharing my progress on personal projects and whatever else comes to mind. Thanks for checking it out!').style('font-family: League Spartan; font-size: 150%;')
 
 
-ui.run(root)
+ui.run(root, favicon='./img/favicon.ico', title='Rabbit')
