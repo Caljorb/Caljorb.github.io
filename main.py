@@ -1,14 +1,9 @@
 from nicegui import ui
-
-'''
-TODO:
-  1. make bg img (pixel art rainbow bunnies in space?)
-  2. idkkkkkk
-'''
+import random as rand
 
 dark = True
-
 def menu():
+  # TODO: add favicon <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   ui.add_head_html('''
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +40,7 @@ def dark_mode():
   ui.query('.menu').style(f'color: {color}')
   ui.query('.post').style(f'color: {color}')
   ui.query('.text').style(f'color: {color}')
+  ui.query('.random').style(f'color: {color}')
   ui.dark_mode(dark)
 
 @ui.page('/')
@@ -70,8 +66,43 @@ def about():
 @ui.page('/random')
 def random():
   menu()
-  ui.label('Under construction').style('font-size: 150%; font-family: League Spartan;')
+  color = '#ffffff' if dark else '#000000'
+  with ui.row().classes('w-full justify-center'):
+    ui.label('Random Links').style(f'font-family: League Spartan; font-size: 250%; font-weight: bold; text-decoration-line: underline;')
+  with ui.row().classes('w-full justify-center'):
+    with ui.grid(columns=2):
+      with ui.card().classes('items-center shadow-lg'):
+        ui.link(text='Quotes', target=quotes).classes('random')
+      
+      with ui.card().classes('items-center shadow-lg'):
+        ui.link(text='Drawings', target=drawings).classes('random')
 
+  ui.query('.random').style(f'color: {color}; font-size: 125%; font-family: League Spartan;')
+
+@ui.page('/quotes')
+def quotes():
+  menu()
+  # TODO: get more quotes
+  quote_list = [
+    'It\'s a terrible day for rain',
+    'See you next time',
+  ]
+
+  # TODO: check i can do this with jsut a standard label
+  class quote_label(ui.label):
+    def _handle_text_change(self, text: str) -> None:
+        super()._handle_text_change(text)
+  model = {'quote': rand.choice(quote_list)}
+  with ui.row().classes('w-full justify-center'):
+    with ui.card().classes('items-center shadow-lg'):
+      quote_label().bind_text_from(model, 'quote').style('font-size: 125%; font-family: League Spartan;')
+  with ui.row().classes('w-full justify-center'):
+    ui.button(text='New Quote', on_click=lambda: model.update(quote=rand.choice(quote_list)))
+
+@ui.page('/drawings')
+def drawings():
+  menu()
+    
 ### POSTS ###
 
 @ui.page('/posts')
@@ -93,13 +124,9 @@ def add_post(date, title, dst):
 def first_post():
   menu()
   color = '#ffffff' if dark else '#000000'
-  with ui.row().classes('w-1/2 justify-center'):
-    ui.html('''
-            <h2>First Post</h2>
-            <p>This is a test for my first post</p>
-            ''', sanitize=False).classes('text')
-  ui.query('.text').style(f'font-family: League Spartan; color: {color};')
-  ui.query('p').style('font-size: 150%;')
+  with ui.row().classes('ml-100 mr-100'):
+      ui.label('Welcome to my site').style(f'font-family: League Spartan; font-size: 250%; font-weight: bold; text-decoration-line: underline;')
+      ui.label('I\'m not entirely sure what I\'ll be using it for yet, but I plan on sharing my progress on personal projects and whatever else comes to mind. Thanks for checking it out!').style('font-family: League Spartan; font-size: 150%;')
 
 
 ui.run(root)
