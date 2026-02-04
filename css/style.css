@@ -1,0 +1,46 @@
+.menu {
+    font-size: 125%;
+    font-family: League Spartan;
+    background-color: #444444;
+    padding: 1%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-style: solid;
+    border-color: #222222;
+}
+
+.links {
+    gap: 7%;
+    display: flex;
+}
+
+.menu-link {
+    color: #ffffff;
+}
+
+.bunny {
+    font-size: 100%;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    display: flex;
+    background-color: #000000;
+    border-style: solid;
+    border-color: #ffffff;
+}
+
+.contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    font-size: 125%;
+    font-family: League Spartan;
+    background-color: #444444;
+    color: #ffffff;
+    width: 75%;
+    /* display: flex; */
+}
