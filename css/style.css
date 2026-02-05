@@ -1,8 +1,12 @@
+body {
+    background-color: #000000;
+}
+
 .menu {
     font-size: 125%;
     font-family: League Spartan;
     background-color: #444444;
-    padding: 1%;
+    padding: .75%;
     justify-content: space-between;
     display: flex;
     align-items: center;
@@ -28,6 +32,7 @@
     background-color: #000000;
     border-style: solid;
     border-color: #ffffff;
+    border-width: 1px;
 }
 
 .contain {
@@ -36,11 +41,54 @@
     justify-content: center;
 }
 
-.text {
+.text-contain-i {
     font-size: 125%;
     font-family: League Spartan;
     background-color: #444444;
     color: #ffffff;
     width: 75%;
-    /* display: flex; */
+    border-style: solid;
+    border-color: #222222;
 }
+
+.text-contain-p {
+    font-size: 125%;
+    font-family: League Spartan;
+    background-color: #444444;
+    color: #ffffff;
+    width: 75%;
+    /* padding-bottom: 100%; */
+    border-style: solid;
+    border-color: #222222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    font-size: 125%;
+    font-family: League Spartan;
+    color: #ffffff;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.text-p {
+    font-size: 125%;
+    font-family: League Spartan;
+    color: #ffffff;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
